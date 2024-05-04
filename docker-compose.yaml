@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   api:
-    container_name: linkService
+    container_name: profile
     restart: unless-stopped
     build:
       context: .

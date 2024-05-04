@@ -26,7 +26,7 @@
 .social:hover > li:hover {
     opacity: 1;
 }
-.projects {
+ul {
     padding-inline-start: 0;
 }
 .projects li {

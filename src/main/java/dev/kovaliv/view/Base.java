@@ -20,7 +20,7 @@ public class Base {
                 meta().withCharset("UTF-8"),
                 meta().withName("viewport").withContent("width=device-width, initial-scale=1.0"),
                 link().withRel("stylesheet").withHref("/css/main.css?1.6"),
-                link().withRel("stylesheet").withHref("/css/social.css?1.0"),
+                link().withRel("stylesheet").withHref("/css/social.css?1.1"),
                 link().withRel("stylesheet").withHref("/css/icons.min.css"),
                 link().withRel("preconnect").withHref("https://fonts.macpaw.com").attr("crossorigin"),
                 link().withRel("stylesheet").withHref("https://fonts.macpaw.com/css?family=FixelDisplay:300"),

@@ -21,9 +21,16 @@ public class Pages {
                         div(
                                 h2("My projects"),
                                 ul(
-                                        li(a("STOPruMUSIC").withHref("https://stoprumusic.kovaliv.dev")),
-                                        li(a("Spike assistant").withHref("https://spike-ua.com"))/*,
-                                li(a("Лінк сервіс").withHref("https://link.kovaliv.dev"))*/
+                                        li(div(
+                                                h3("STOPruMUSIC"),
+                                                p("Service to fight Russian music in Spotify."),
+                                                a("View").withHref("https://stoprumusic.kovaliv.dev")
+                                        )),
+                                        li(div(
+                                                h3("Spike assistant"),
+                                                p("Mobile application for saving task lists with the ability to recognize parameters from text."),
+                                                a("View").withHref("https://spike-ua.com")
+                                        ))
                                 ).withClass("projects")
                         ).withClass("home-text"),
                         div(
@@ -60,9 +67,16 @@ public class Pages {
                         div(
                                 h2("Мої проекти"),
                                 ul(
-                                        li(a("STOPruMUSIC").withHref("https://stoprumusic.kovaliv.dev")),
-                                        li(a("Spike assistant").withHref("https://spike-ua.com"))/*,
-                                li(a("Лінк сервіс").withHref("https://link.kovaliv.dev"))*/
+                                        li(div(
+                                                h3("STOPruMUSIC"),
+                                                p("Сервіс для боротьби з російською музикою в Spotify."),
+                                                a("Переглянути").withHref("https://stoprumusic.kovaliv.dev")
+                                        )),
+                                        li(div(
+                                                h3("Spike assistant"),
+                                                p("Мобільний застосунок для збереження списків справ з можливістю розпізнавання параметрів з тексту."),
+                                                a("Переглянути").withHref("https://spike-ua.com")
+                                        ))
                                 ).withClass("projects")
                         ).withClass("home-text"),
                         div(

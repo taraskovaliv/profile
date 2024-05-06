@@ -370,7 +370,6 @@ form textarea {
     text-decoration: none;
     width: auto;
 }
-
 .btn-heart > .text {
     font-family: inherit;
     text-align: center;
@@ -379,7 +378,6 @@ form textarea {
     width: 100%;
     padding: 8px 16px;
 }
-
 .btn-heart > .icon {
     display: inline-flex;
     justify-content: center;
@@ -402,7 +400,6 @@ form textarea {
         padding-bottom: 5px;
     }
 }
-
 @media (min-width: 401px) {
     .cba {
         flex-direction: row;
@@ -412,14 +409,11 @@ form textarea {
         padding-right: 20px;
     }
 }
-
 .cba {
     display: inline-flex;
-    padding: 5px;
+    padding: 8px;
     border: dashed grey 1px;
 }
-
-
 .cba-logo img {
     width: 97px;
     height: 48px;

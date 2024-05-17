@@ -12,9 +12,7 @@ import static java.time.LocalDateTime.now;
 public class Main {
     public static void main(String[] args) {
         LocalDateTime start = now();
-        Javalin app = App.app();
-
-        app.start(1904);
+        App.app().start(1904);
         log.info("App started in {} seconds", Duration.between(start, now()).getSeconds());
     }
 }

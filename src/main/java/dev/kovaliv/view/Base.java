@@ -19,8 +19,8 @@ public class Base {
         return head(
                 meta().withCharset("UTF-8"),
                 meta().withName("viewport").withContent("width=device-width, initial-scale=1.0"),
-                link().withRel("stylesheet").withHref("/css/main.css?1.6"),
-                link().withRel("stylesheet").withHref("/css/social.css?1.1"),
+                link().withRel("stylesheet").withHref("/css/main.css?1.9"),
+                link().withRel("stylesheet").withHref("/css/profile.css?1.0"),
                 link().withRel("stylesheet").withHref("/css/icons.min.css"),
                 link().withRel("preconnect").withHref("https://fonts.macpaw.com").attr("crossorigin"),
                 link().withRel("stylesheet").withHref("https://fonts.macpaw.com/css?family=FixelDisplay:300"),
@@ -29,7 +29,6 @@ public class Base {
                 script().withSrc("https://plausible.io/js/script.js")
                         .attr("defer")
                         .attr("data-domain", "kovaliv.dev"),
-                //TODO add icon
                 title(title)
         );
     }
@@ -56,10 +55,14 @@ public class Base {
         return div(
                 hr(),
                 div("©2024 kovaliv.dev")
-        ).withClass("footer");
+        ).withClass("text-center");
     }
 
     public static HtmlTag getPage(String title, Tag... contents) {
+        return getPage(title, "uk", contents);
+    }
+
+    public static HtmlTag getPage(String title, String lang, Tag... contents) {
         return html(
                 getHead(title),
                 body(
@@ -68,11 +71,13 @@ public class Base {
                         each(Arrays.asList(contents), c -> c),
                         getFooter()
                 )
-        ).withLang("uk");
+        ).withLang(lang);
     }
 
     public static ATag getEmail() {
-        return a(getenv("EMAIL")).withHref("mailto:" + getenv("EMAIL"));
+        return a(getenv("EMAIL"))
+                .withClass("btn-link")
+                .withHref("mailto:" + getenv("EMAIL"));
     }
 
     public static DivTag getSaveLive() {
@@ -86,7 +91,7 @@ public class Base {
         return a(
                 img().withSrc("https://savelife.in.ua/wp-content/themes/savelife/assets/images/new-logo-black-ua.svg")
                         .withAlt("SaveLife")
-        ).withHref("https://savelife.in.ua").withClass("cba-logo");
+        ).withHref("https://link.kovaliv.dev/savelife").withClass("cba-logo");
     }
 
     public static ATag getSaveLiveButton() {
@@ -106,7 +111,7 @@ public class Base {
                 span("ПІДТРИМАТИ").withClass("text")
         )
                 .withClass("btn-heart")
-                .withHref("https://savelife.in.ua/donate/");
+                .withHref("https://link.kovaliv.dev/savelife_donate");
     }
 
     static class PathTag extends ContainerTag<PathTag> {

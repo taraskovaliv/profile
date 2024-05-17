@@ -26,34 +26,9 @@
 .social:hover > li:hover {
     opacity: 1;
 }
-ul {
-    padding-inline-start: 0;
-}
 .projects li {
     display: block;
     margin-bottom: 5px;
     padding: 20px;
     border: dashed grey 1px;
-}
-.projects h3 {
-    text-align: left;
-    padding-inline-start: 20px;
-    margin-top: 0;
-}
-.projects p {
-    text-align: justify;
-}
-.projects li a {
-    display: inline-block;
-    margin: 0 auto;
-    font-size: 1.2em;
-    padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 6px;
-    color: rgba(255, 255, 255, 0.6);
-    transition: ease 0.3s;
-}
-.projects li a:hover {
-    color: lightgreen;
-    border: 1px solid lightgreen;
 }

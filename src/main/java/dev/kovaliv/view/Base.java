@@ -26,7 +26,8 @@ public class Base {
                 link().withRel("stylesheet").withHref("https://fonts.macpaw.com/css?family=FixelDisplay:300"),
                 link().withRel("stylesheet").withHref("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"),
                 link().withRel("icon").withType("image/x-icon").withHref("/img/favicon.ico"),
-                script().withSrc("https://plausible.io/js/script.js")
+                script().withSrc("https://plausible.kovaliv.dev/js/script.js")
+                        .attr("defer")
                         .attr("defer")
                         .attr("data-domain", "kovaliv.dev"),
                 title(title)

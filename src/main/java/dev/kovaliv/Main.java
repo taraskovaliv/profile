@@ -1,6 +1,5 @@
 package dev.kovaliv;
 
-import io.javalin.Javalin;
 import lombok.extern.log4j.Log4j2;
 
 import java.time.Duration;

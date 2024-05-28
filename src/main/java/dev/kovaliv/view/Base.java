@@ -1,129 +1,156 @@
 package dev.kovaliv.view;
 
-import j2html.tags.ContainerTag;
+import j2html.tags.DomContent;
 import j2html.tags.Tag;
-import j2html.tags.specialized.ATag;
-import j2html.tags.specialized.DivTag;
-import j2html.tags.specialized.HeadTag;
-import j2html.tags.specialized.HtmlTag;
+import j2html.tags.specialized.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static j2html.TagCreator.*;
-import static java.lang.System.getenv;
 
 public class Base {
 
-    public static HeadTag getHead(String title) {
+    public static HeadTag getHead(Head head) {
         return head(
+                title(head.title),
                 meta().withCharset("UTF-8"),
                 meta().withName("viewport").withContent("width=device-width, initial-scale=1.0"),
-                link().withRel("stylesheet").withHref("/css/main.css?1.9"),
-                link().withRel("stylesheet").withHref("/css/profile.css?1.0"),
-                link().withRel("stylesheet").withHref("/css/icons.min.css"),
-                link().withRel("preconnect").withHref("https://fonts.macpaw.com").attr("crossorigin"),
-                link().withRel("stylesheet").withHref("https://fonts.macpaw.com/css?family=FixelDisplay:300"),
-                link().withRel("stylesheet").withHref("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"),
-                link().withRel("icon").withType("image/x-icon").withHref("/img/favicon.ico"),
-                script().withSrc("https://plausible.kovaliv.dev/js/script.js")
-                        .attr("defer")
-                        .attr("defer")
-                        .attr("data-domain", "kovaliv.dev"),
-                title(title)
+                meta().withName("description").withContent(head.description),
+                link().withRel("shortcut icon").withHref("/img/favicon.ico"),
+                link().withRel("stylesheet").withHref("/css/bootstrap.min.css"),
+                link().withRel("stylesheet").withHref("/css/style.css"),
+                link().withRel("stylesheet").withHref("/css/style-responsive.css"),
+                link().withRel("stylesheet").withHref("/css/vertical-rhythm.min.css"),
+                link().withRel("stylesheet").withHref("/css/magnific-popup.css"),
+                link().withRel("stylesheet").withHref("/css/owl.carousel.css"),
+                link().withRel("stylesheet").withHref("/css/animate.min.css"),
+                link().withRel("stylesheet").withHref("/css/splitting.css")
         );
     }
 
-    public static DivTag getNavBar() {
-        return div(
+    public record Head(String title, String description) {
+    }
+
+    public static FooterTag getFooter() {
+        return footer(
                 div(
-                        a("Taras Kovaliv").withHref("/")
-                ).withClass("logo"),
+                        div(
+                                div(
+                                        a("© Kovaliv 2024").withHref("/")
+                                ).withClass("footer-copy")
+                        ).withClass("footer-text")
+                ).withClass("container"),
                 div(
-                        a("UA")
-                                .withHref("?lang=uk")
-                                .withClass("btn-link")
-                                .withStyle("display:block; padding: 5px; font-size: 1em"),
-                        a("EN")
-                                .withHref("?lang=en")
-                                .withClass("btn-link")
-                                .withStyle("display:block; padding: 5px; font-size: 1em")
-                ).withClass("lang")
-        ).withClasses("header");
+                        a(
+                                i().withClass("link-to-top-icon"),
+                                span("Scroll to top").withClass("sr-only")
+                        )
+                                .withHref("#top")
+                                .withClass("link-to-top")
+                ).withClass("local-scroll")
+        ).withClasses("page-section", "bg-dark-lighter", "light-content", "footer", "pb-100", "pb-sm-50");
     }
 
-    public static DivTag getFooter() {
+    public static List<ScriptTag> getScripts() {
+        return List.of(
+                script().withSrc("/js/jquery.min.js"),
+                script().withSrc("/js/jquery.easing.1.3.js"),
+                script().withSrc("/js/bootstrap.bundle.min.js"),
+                script().withSrc("/js/SmoothScroll.js"),
+                script().withSrc("/js/jquery.scrollTo.min.js"),
+                script().withSrc("/js/jquery.localScroll.min.js"),
+                script().withSrc("/js/jquery.viewport.mini.js"),
+                script().withSrc("/js/jquery.parallax-1.1.3.js"),
+                script().withSrc("/js/jquery.fitvids.js"),
+                script().withSrc("/js/owl.carousel.min.js"),
+                script().withSrc("/js/isotope.pkgd.min.js"),
+                script().withSrc("/js/imagesloaded.pkgd.min.js"),
+                script().withSrc("/js/jquery.magnific-popup.min.js"),
+                script().withSrc("/js/masonry.pkgd.min.js"),
+                script().withSrc("/js/jquery.lazyload.min.js"),
+                script().withSrc("/js/wow.min.js"),
+                script().withSrc("/js/morphext.js"),
+                script().withSrc("/js/typed.min.js"),
+                script().withSrc("/js/all.js"),
+                script().withSrc("/js/jquery.ajaxchimp.min.js"),
+                script().withSrc("/js/objectFitPolyfill.min.js"),
+                script().withSrc("/js/splitting.min.js"),
+                script().withSrc("/js/gsap.min.js")
+        );
+    }
+
+    private static DivTag getLoader(String lang) {
+        String loadingText = "Завантаження...";
+        if ("en".equals(lang)) {
+            loadingText = "Loading...";
+        }
         return div(
-                hr(),
-                div("©2024 kovaliv.dev")
-        ).withClass("text-center");
+                div(loadingText).withClass("loader")
+        ).withClasses("page-loader", "dark");
     }
 
-    public static HtmlTag getPage(String title, Tag... contents) {
-        return getPage(title, "uk", contents);
+    private static NavTag getNav(String lang) {
+        return nav(
+                div(
+                        div(
+                                a(
+                                        img()
+                                                .withSrc("/img/logo.png")
+                                                .withAlt("Kovaliv DEV logo")
+                                                .withWidth("376")
+                                                .withHeight("74")
+                                ).withHref("/").withClass("logo")
+                        ).withClasses("nav-logo-wrap", "local-scroll"),
+                        div(
+                                i().withClasses("fa", "fa-bars"),
+                                span("en".equals(lang) ? "Menu" : "Меню").withClass("sr-only")
+                        ).withClass("mobile-nav").attr("role", "button").withTabindex(0),
+                        div(
+                                ul(
+                                        li(
+                                                a(
+                                                        span("en".equals(lang) ? "Eng " : "Укр "),
+                                                        i().withClass("mn-has-sub-icon")
+                                                )
+                                                        .withHref("#")
+                                                        .withClass("mn-has-sub"),
+                                                ul(
+                                                        li(a("Українська").withHref("?lang=uk")),
+                                                        li(a("English").withHref("?lang=en"))
+                                                ).withClass("mn-sub")
+                                        )
+                                ).withClass("clearlist")
+                        ).withClasses("inner-nav", "desktop-nav")
+                ).withClasses("full-wrapper", "relative", "clearfix")
+        ).withClasses("main-nav", "dark", "transparent", "stick-fixed", "wow-menubar");
     }
 
-    public static HtmlTag getPage(String title, String lang, Tag... contents) {
+    public static HtmlTag getPage(Head head, DomContent... contents) {
+        return getPage(head, "uk", contents);
+    }
+
+    public static HtmlTag getPage(Head head, String lang, DomContent... contents) {
+        if (lang == null) {
+            lang = "uk";
+        }
+        List<DomContent> contentList = new ArrayList<>();
+        List<DomContent> content = new ArrayList<>();
+        content.add(getNav(lang));
+        content.addAll(Arrays.asList(contents));
+        content.add(getFooter());
+        contentList.add(getLoader(lang));
+        contentList.add(a("Skip to Content").withClasses("btn", "skip-to-content").withHref("#main"));
+        contentList.add(div(
+                content.toArray(DomContent[]::new)
+        ).withId("top").withClasses("page", "bg-dark", "light-content"));
+        contentList.addAll(getScripts());
         return html(
-                getHead(title),
+                getHead(head),
                 body(
-                        getNavBar(),
-                        hr(),
-                        each(Arrays.asList(contents), c -> c),
-                        getFooter()
-                )
+                        contentList.toArray(DomContent[]::new)
+                ).withClass("appear-animate")
         ).withLang(lang);
-    }
-
-    public static ATag getEmail() {
-        return a(getenv("EMAIL"))
-                .withClass("btn-link")
-                .withHref("mailto:" + getenv("EMAIL"));
-    }
-
-    public static DivTag getSaveLive() {
-        return div(
-                getSaveLiveLogo(),
-                getSaveLiveButton()
-        ).withClass("cba");
-    }
-
-    public static ATag getSaveLiveLogo() {
-        return a(
-                img().withSrc("https://savelife.in.ua/wp-content/themes/savelife/assets/images/new-logo-black-ua.svg")
-                        .withAlt("SaveLife")
-        ).withHref("https://link.kovaliv.dev/savelife").withClass("cba-logo");
-    }
-
-    public static ATag getSaveLiveButton() {
-        return a(
-                span(
-                        new SvgTag().withStyle("transform: scale(0.95)")
-                                .attr("width", "19")
-                                .attr("height", "20")
-                                .attr("viewBox", "0 0 19 20")
-                                .attr("fill", "none")
-                                .attr("xmlns", "http://www.w3.org/2000/svg")
-                                .with(new PathTag()
-                                        .attr("d", "M16.6159 7.98068L9.25075 17.7431L1.8856 7.98068L1.88557 7.98064C0.522531 6.17413 0.756095 3.66224 2.42693 2.135L2.42702 2.13492C3.33721 1.30274 4.56887 0.898143 5.79348 1.02191L5.79514 1.02207C6.84144 1.12605 7.806 1.60704 8.52511 2.36538L9.25074 3.13058L9.97636 2.36538C10.6946 1.60793 11.667 1.12601 12.7069 1.02201L12.7075 1.02196C13.94 0.898051 15.164 1.30246 16.0745 2.13492L16.076 2.13631C17.7532 3.66341 17.9862 6.17312 16.6173 7.97881L16.6159 7.98068Z")
-                                        .attr("stroke", "white")
-                                        .attr("stroke-width", "2"))
-                ).withClass("icon"),
-                span("ПІДТРИМАТИ").withClass("text")
-        )
-                .withClass("btn-heart")
-                .withHref("https://link.kovaliv.dev/savelife_donate");
-    }
-
-    static class PathTag extends ContainerTag<PathTag> {
-        protected PathTag() {
-            super("path");
-        }
-    }
-
-    static class SvgTag extends ContainerTag<SvgTag> {
-        protected SvgTag() {
-            super("svg");
-        }
     }
 }

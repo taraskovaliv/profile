@@ -1,7 +1,6 @@
 package dev.kovaliv.view;
 
 import j2html.tags.DomContent;
-import j2html.tags.Tag;
 import j2html.tags.specialized.*;
 
 import java.util.ArrayList;
@@ -11,6 +10,10 @@ import java.util.List;
 import static j2html.TagCreator.*;
 
 public class Base {
+
+    public static String getDocType() {
+        return "<!DOCTYPE html>";
+    }
 
     public static HeadTag getHead(Head head) {
         return head(
@@ -26,7 +29,10 @@ public class Base {
                 link().withRel("stylesheet").withHref("/css/magnific-popup.css"),
                 link().withRel("stylesheet").withHref("/css/owl.carousel.css"),
                 link().withRel("stylesheet").withHref("/css/animate.min.css"),
-                link().withRel("stylesheet").withHref("/css/splitting.css")
+                link().withRel("stylesheet").withHref("/css/splitting.css"),
+                script().withSrc("https://plausible.kovaliv.dev/js/script.js")
+                        .attr("defer")
+                        .attr("data-domain", "kovaliv.dev")
         );
     }
 

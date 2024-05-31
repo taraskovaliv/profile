@@ -14,10 +14,6 @@ import static java.lang.System.getenv;
 
 public class BaseOld {
 
-    public static String getDocType() {
-        return "<!DOCTYPE html>";
-    }
-
     public static HeadTag getHead(String title) {
         return head(
                 meta().withCharset("UTF-8"),

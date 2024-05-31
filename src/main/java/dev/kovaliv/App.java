@@ -8,7 +8,7 @@ import lombok.extern.log4j.Log4j2;
 
 import java.util.concurrent.atomic.AtomicReference;
 
-import static dev.kovaliv.view.BaseOld.getDocType;
+import static dev.kovaliv.view.Base.getDocType;
 
 @Log4j2
 public class App {

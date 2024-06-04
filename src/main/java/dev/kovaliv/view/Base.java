@@ -69,7 +69,6 @@ public class Base {
                 script().withSrc("/js/jquery.localScroll.min.js"),
                 script().withSrc("/js/jquery.viewport.mini.js"),
                 script().withSrc("/js/jquery.parallax-1.1.3.js"),
-                script().withSrc("/js/jquery.fitvids.js"),
                 script().withSrc("/js/owl.carousel.min.js"),
                 script().withSrc("/js/isotope.pkgd.min.js"),
                 script().withSrc("/js/imagesloaded.pkgd.min.js"),

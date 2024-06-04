@@ -54,11 +54,6 @@
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-/* mouse grab icon */
-.grabbing { 
-    cursor:url(grabbing.png) 8 8, move;
-}
-
 /* fix */
 .owl-carousel  .owl-wrapper,
 .owl-carousel  .owl-item{
@@ -74,7 +69,6 @@
  *  Owl Carousel CSS3 Transitions 
  *  v1.3.2
  */
-
 .owl-origin {
 	-webkit-perspective: 1200px;
 	-webkit-perspective-origin-x : 50%;
@@ -213,7 +207,6 @@
 @keyframes goDown {
   from { transform: translateY(-100%); }
 }
-
 @-webkit-keyframes scaleUpFrom {
   from { opacity: 0; -webkit-transform: scale(1.5); }
 }

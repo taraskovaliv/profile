@@ -4,15 +4,15 @@
   display: inline-block;
 }
 
-/* Psuedo-element chars */
+/* Pseudo-element chars */
 .splitting .char {
   position: relative;
 }
 
 /**
- * Populate the psuedo elements with the character to allow for expanded effects
+ * Populate the pseudo elements with the character to allow for expanded effects
  * Set to `display: none` by default; just add `display: block` when you want
- * to use the psuedo elements
+ * to use the pseudo elements
  */
 .splitting .char::before,
 .splitting .char::after {

@@ -90,13 +90,11 @@ Primary use: Multipurpose Template
   /*
    * Font Awesome
    */
-  
   @import "all.min.css";
   
   /*
    * Font HK Grotesk
    */
-
 @font-face {
     font-family: 'HK_Grotesk';
     src: url('../webfonts/hkgrotesk-regular-webfont.woff2') format('woff2'),
@@ -857,10 +855,7 @@ a.btn-mod:focus{
     font-weight: 400;
     color: #757575;
     border: 1px solid rgba(0,0,0, .24);
-    padding-top: 0;
-    padding-bottom: 3px;
-    padding-left: 7px;
-    padding-right: 7px;
+    padding: 0 7px 3px;
     border-radius: 0;
     box-shadow: none;
     
@@ -1172,29 +1167,27 @@ a.btn-mod:focus{
     margin-top: -3px;
     position: absolute;
     left: 50%;
-    top: 50%;  
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13px" height="9px"><path fill-rule="evenodd" fill="rgb(17, 17, 17)" d="M13.004,1.626 L6.780,9.003 L6.304,8.474 L6.133,8.664 L-0.004,1.955 L1.453,0.335 L6.550,5.905 L11.536,-0.005 L13.004,1.626 Z"/></svg>');
-    background-repeat: no-repeat;
+    top: 50%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13px" height="9px"><path fill-rule="evenodd" fill="rgb(17, 17, 17)" d="M13.004,1.626 L6.780,9.003 L6.304,8.474 L6.133,8.664 L-0.004,1.955 L1.453,0.335 L6.550,5.905 L11.536,-0.005 L13.004,1.626 Z"/></svg>') no-repeat;
     z-index: 2;
 }
 
 /*
  * HTML5 BG VIdeo
  */
-
 .bg-video-wrapper{
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
 }
 .bg-video-overlay{
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
 }
 .bg-video-wrapper > video{
     position: absolute;
@@ -1221,7 +1214,6 @@ a.bg-video-button-muted{
 /*
  * Section edge svg
  */
-
 .edge-top-figure{
     width: 100%;
     position: absolute;
@@ -1244,7 +1236,6 @@ a.bg-video-button-muted{
 /*
  * Fullwidth gallery
  */
-
 .fullwidth-gallery-wrapper{
     position: absolute;
     top: 0;
@@ -1259,7 +1250,6 @@ a.bg-video-button-muted{
 /*
  * Split background
  */
-
 .split-background{
     position: absolute;
     top: 0;
@@ -1275,7 +1265,6 @@ a.bg-video-button-muted{
 /*
  * Float Images
  */
-
 .float-images{
     position: absolute;
     top: 0;
@@ -1336,7 +1325,6 @@ a.bg-video-button-muted{
 /* 
  * Headings styles
  */
-
 .hs-wrap{
     max-width: 570px;
     margin: 0 auto;
@@ -2183,7 +2171,7 @@ a.logo:hover{
 .mobile-on .js-opened > .mn-has-sub > .mn-has-sub-icon-right{
     border-color: rgba(255,255,255, .4);
     -webkit-transform: rotate(270deg);
-    -moz-transform: rotate(270deg)
+    -moz-transform: rotate(270deg);
     transform: rotate(270deg)
 }
 .mobile-on .inner-nav li{
@@ -2457,7 +2445,7 @@ a.logo:hover{
     left: 0;
     background-repeat: repeat;
     background-size: auto;
-    background-image: url(../images/pattern-bg-2.png);
+    background-image: url(../img/pattern-bg-2.png);
 }
 .bg-white{
     background-color: #fff;
@@ -4913,8 +4901,7 @@ a.blog-item-more:hover{
     color: #555;
     text-decoration: none;
     padding-bottom: 2px;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;    
+    border-bottom: 1px solid transparent;
     -webkit-transition: all 0.17s cubic-bezier(0.000, 0.000, 0.580, 1.000);
     transition: all 0.17s cubic-bezier(0.000, 0.000, 0.580, 1.000);
 }
@@ -5276,7 +5263,7 @@ table.shopping-cart-table tr td{
 }
 .light-content .owl-page span{
     border: 1px solid #fff;
-    box-shadow: 1px 1px 0px rgba(0, 0, 0, .1);    
+    box-shadow: 1px 1px 0 rgba(0, 0, 0, .1);
 }
 .light-content .owl-page.active span{    
     background: #fff;

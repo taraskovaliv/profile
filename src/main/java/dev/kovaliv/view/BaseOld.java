@@ -1,7 +1,7 @@
 package dev.kovaliv.view;
 
 import j2html.tags.ContainerTag;
-import j2html.tags.Tag;
+import j2html.tags.DomContent;
 import j2html.tags.specialized.ATag;
 import j2html.tags.specialized.DivTag;
 import j2html.tags.specialized.HeadTag;
@@ -58,11 +58,11 @@ public class BaseOld {
         ).withClass("text-center");
     }
 
-    public static HtmlTag getPage(String title, Tag... contents) {
+    public static HtmlTag getPage(String title, DomContent... contents) {
         return getPage(title, "uk", contents);
     }
 
-    public static HtmlTag getPage(String title, String lang, Tag... contents) {
+    public static HtmlTag getPage(String title, String lang, DomContent... contents) {
         return html(
                 getHead(title),
                 body(

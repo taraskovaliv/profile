@@ -5,7 +5,8 @@ import j2html.tags.specialized.HrTag;
 import j2html.tags.specialized.HtmlTag;
 import j2html.tags.specialized.MainTag;
 
-import static dev.kovaliv.view.BaseOld.*;
+import static dev.kovaliv.view.BaseOld.getEmail;
+import static dev.kovaliv.view.BaseOld.getSaveLive;
 import static j2html.TagCreator.*;
 
 public class Pages {
@@ -31,6 +32,9 @@ public class Pages {
     }
 
     private static MainTag getHomeContent(String lang) {
+        String spikeUrl = "https://link.kovaliv.dev/spike";
+        String stopRuMusicUrl = "https://link.kovaliv.dev/stoprumusic";
+        String electricityUrl = "https://electricity.kovaliv.dev";
         return main(
                 section(
                         div(
@@ -133,58 +137,37 @@ public class Pages {
                                 ).withClasses("text-center", "mb-80", "mb-sm-50"),
                                 div(
                                         div(
-                                                div(
-                                                        a(
-                                                                img()
-                                                                        .withSrc("/img/stop_ru_music.png")
-                                                                        .withClasses("wow", "scaleOutIn")
-                                                                        .attr("data-wow-duration", "1.2s")
-                                                        ).withTabindex(-1)
-                                                                .withHref("https://link.kovaliv.dev/stoprumusic")
-                                                ).withClass("post-prev-img"),
+                                                getProjectImage("stop_ru_music.png", stopRuMusicUrl),
                                                 h3(
-                                                        a("STOPruMUSIC")
-                                                                .withHref("https://link.kovaliv.dev/stoprumusic")
+                                                        a("STOPruMUSIC").withHref(stopRuMusicUrl)
                                                 ).withClass("post-prev-title"),
-                                                div(
-                                                        p(
-                                                                "en".equals(lang) ? "Service to fight Russian music in Spotify." :
+                                                div(p(
+                                                        "en".equals(lang) ? "Service to fight Russian music in Spotify." :
                                                                 "Сервіс для боротьби з російською музикою в Spotify."
-                                                        )
-                                                ).withClass("post-prev-text"),
-                                                div(
-                                                        a("en".equals(lang) ? "View" : "Переглянути")
-                                                                .withHref("https://link.kovaliv.dev/stoprumusic")
-                                                                .withClasses("text-link")
-                                                                .withTabindex(-1)
-                                                ).withClasses("post-prev-more")
+                                                )).withClass("post-prev-text"),
+                                                getShowMoreButton(lang, stopRuMusicUrl)
                                         ).withClasses("col-sm-6", "col-md-4", "col-lg-4", "mb-md-50"),
                                         div(
-                                                div(
-                                                        a(
-                                                                img()
-                                                                        .withSrc("/img/spike.png")
-                                                                        .withClasses("wow", "scaleOutIn")
-                                                                        .attr("data-wow-duration", "1.2s")
-                                                        ).withTabindex(-1)
-                                                                .withHref("https://link.kovaliv.dev/spike")
-                                                ).withClass("post-prev-img"),
+                                                getProjectImage("spike.png", spikeUrl),
                                                 h3(
-                                                        a("Spike assistant")
-                                                                .withHref("https://link.kovaliv.dev/spike")
+                                                        a("Spike assistant").withHref(spikeUrl)
                                                 ).withClass("post-prev-title"),
-                                                div(
-                                                        p(
-                                                                "en".equals(lang) ? "Mobile application for saving task lists with the ability to recognize parameters from text." :
+                                                div(p(
+                                                        "en".equals(lang) ? "Mobile application for saving task lists with the ability to recognize parameters from text." :
                                                                 "Мобільний застосунок для збереження списків справ з можливістю розпізнавання параметрів з тексту."
-                                                        )
-                                                ).withClass("post-prev-text"),
-                                                div(
-                                                        a("en".equals(lang) ? "View" : "Переглянути")
-                                                                .withHref("https://link.kovaliv.dev/spike")
-                                                                .withClasses("text-link")
-                                                                .withTabindex(-1)
-                                                ).withClasses("post-prev-more")
+                                                )).withClass("post-prev-text"),
+                                                getShowMoreButton(lang, spikeUrl)
+                                        ).withClasses("col-sm-6", "col-md-4", "col-lg-4", "mb-md-50"),
+                                        div(
+                                                getProjectImage("electricity.png", electricityUrl),
+                                                h3(
+                                                        a("en".equals(lang) ? "Imort/export of electricity" : "Імпорт/експорт електроенергії").withHref(electricityUrl)
+                                                ).withClass("post-prev-title"),
+                                                div(p(
+                                                        "en".equals(lang) ? "Web app to show statistic of import/export of electricity in Ukraine." :
+                                                                "Веб-додаток для відображення статистики імпорту/експорту електроенергії в Україні."
+                                                )).withClass("post-prev-text"),
+                                                getShowMoreButton(lang, electricityUrl)
                                         ).withClasses("col-sm-6", "col-md-4", "col-lg-4", "mb-md-50")
                                 ).withClass("row")
                         ).withClasses("container", "relative")
@@ -207,6 +190,26 @@ public class Pages {
                         ).withClasses("container", "relative")
                 ).withClasses("small-section", "bg-dark", "light-content")
         ).withId("main");
+    }
+
+    private static DivTag getProjectImage(String image, String url) {
+        return div(
+                a(
+                        img()
+                                .withSrc("/img/" + image)
+                                .withClasses("wow", "scaleOutIn")
+                                .attr("data-wow-duration", "1.2s")
+                ).withTabindex(-1).withHref(url)
+        ).withClass("post-prev-img");
+    }
+
+    private static DivTag getShowMoreButton(String lang, String url) {
+        return div(
+                a("en".equals(lang) ? "View" : "Переглянути")
+                        .withHref(url)
+                        .withClasses("text-link")
+                        .withTabindex(-1)
+        ).withClasses("post-prev-more");
     }
 
     private static HrTag divider() {

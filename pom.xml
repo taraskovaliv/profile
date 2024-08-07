@@ -15,7 +15,7 @@
         <j2html.version>1.6.0</j2html.version>
         <log4j.version>2.23.1</log4j.version>
         <lombok.version>1.18.34</lombok.version>
-        <slf4j-simple.version>2.0.13</slf4j-simple.version>
+        <slf4j-simple.version>2.0.14</slf4j-simple.version>
         <maven-assembly-plugin.version>3.7.1</maven-assembly-plugin.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
     </properties>

@@ -1,17 +1,44 @@
 package dev.kovaliv;
 
-import lombok.extern.log4j.Log4j2;
+import dev.kovaliv.view.Base;
+import dev.kovaliv.view.Pages;
+import dev.kovaliv.view.def.AbstractBasicGetNav;
+import dev.kovaliv.view.def.GetNav;
+import io.javalin.Javalin;
+import io.javalin.http.Context;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
-
-import static java.time.LocalDateTime.now;
-
-@Log4j2
 public class Main {
     public static void main(String[] args) {
-        LocalDateTime start = now();
-        App.app().start(1904);
-        log.info("App started in {} seconds", Duration.between(start, now()).getSeconds());
+        AppStarter.startWithoutContext(new App(), 1904);
+    }
+
+    public static class App extends AbstractApp {
+
+        @Override
+        protected void addEndpoints(Javalin javalin) {
+            javalin.get("/", App::home);
+        }
+
+        @Override
+        protected GetNav nav() {
+            return new AbstractBasicGetNav() {
+
+                @Override
+                protected Logo getLogo(String s) {
+                    return new Logo(
+                            "/img/logo.png", "Kovaliv DEV logo", "376", "74"
+                    );
+                }
+
+                @Override
+                protected boolean hasLangs() {
+                    return true;
+                }
+            };
+        }
+
+        private static void home(Context ctx) {
+            ctx.html(Base.getHtml(Pages.getIndex(ctx)));
+        }
     }
 }

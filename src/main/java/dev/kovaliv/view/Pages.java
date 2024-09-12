@@ -1,40 +1,31 @@
 package dev.kovaliv.view;
 
+import io.javalin.http.Context;
 import j2html.tags.specialized.DivTag;
-import j2html.tags.specialized.HrTag;
 import j2html.tags.specialized.HtmlTag;
 import j2html.tags.specialized.MainTag;
 
-import static dev.kovaliv.view.BaseOld.getEmail;
-import static dev.kovaliv.view.BaseOld.getSaveLive;
+import static dev.kovaliv.view.Base.divider;
+import static dev.kovaliv.view.Base.getEmail;
 import static j2html.TagCreator.*;
 
 public class Pages {
 
-    public static final Base.Head HEAD_HOME_UK = new Base.Head("Профіль Ковалів Тарас", "Особистий профіль Ковалів Тарас");
-    public static final Base.Head HEAD_HOME_EN = new Base.Head("Kovaliv Taras Profile", "Personal profile of Kovaliv Taras");
-
-    public static HtmlTag getIndexOld(String lang) {
+    public static HtmlTag getIndex(Context ctx) {
+        String lang = Base.getLang(ctx);
         if ("en".equals(lang)) {
-            return BaseOld.getPage("Kovaliv Taras Profile", "en", getHomeContentEnOld());
+            Base.Page EN_PAGE = new Base.Page("Kovaliv Taras profile", "Personal profile Kovaliv Taras", true, false, ctx);
+            return Base.getPage(EN_PAGE, ctx, getHomeContent(lang));
         }
-        return BaseOld.getPage("Профіль Ковалів Тарас", getHomeContentOld());
-    }
-
-    public static HtmlTag getIndex(String lang) {
-        if ("en".equals(lang)) {
-            return Base.getPage(HEAD_HOME_EN, lang, getHomeContent(lang));
-        }
-        if (lang == null) {
-            lang = "uk";
-        }
-        return Base.getPage(HEAD_HOME_UK, getHomeContent(lang));
+        Base.Page UK_PAGE = new Base.Page("Профіль Ковалів Тарас", "Особистий профіль Ковалів Тарас", true, false, ctx);
+        return Base.getPage(UK_PAGE, ctx, getHomeContent(lang));
     }
 
     private static MainTag getHomeContent(String lang) {
         String spikeUrl = "https://link.kovaliv.dev/spike";
         String stopRuMusicUrl = "https://link.kovaliv.dev/stoprumusic";
         String electricityUrl = "https://electricity.kovaliv.dev";
+        String madeInUkraine = "https://made-in-ukraine.kovaliv.dev";
         return main(
                 section(
                         div(
@@ -168,6 +159,17 @@ public class Pages {
                                                                 "Веб-додаток для відображення статистики імпорту/експорту електроенергії в Україні."
                                                 )).withClass("post-prev-text"),
                                                 getShowMoreButton(lang, electricityUrl)
+                                        ).withClasses("col-sm-6", "col-md-4", "col-lg-4", "mb-md-50"),
+                                        div(
+                                                getProjectImage("made-in-ukraine.png", madeInUkraine),
+                                                h3(
+                                                        a("en".equals(lang) ? "National cahback item" : "Товари програми 'Національний кешбек'").withHref(madeInUkraine)
+                                                ).withClass("post-prev-title"),
+                                                div(p(
+                                                        "en".equals(lang) ? "Site to show items made in Ukraine and applied to National cashback." :
+                                                                "Сайт для відображення товарів виготовлених в Україні та доданих до програми Національного кешбеку."
+                                                )).withClass("post-prev-text"),
+                                                getShowMoreButton(lang, madeInUkraine)
                                         ).withClasses("col-sm-6", "col-md-4", "col-lg-4", "mb-md-50")
                                 ).withClass("row")
                         ).withClasses("container", "relative")
@@ -210,109 +212,5 @@ public class Pages {
                         .withClasses("text-link")
                         .withTabindex(-1)
         ).withClasses("post-prev-more");
-    }
-
-    private static HrTag divider() {
-        return hr().withClasses("mt-0", "mb-0", "white");
-    }
-
-    private static DivTag getHomeContentEnOld() {
-        return div(
-                div(
-                        div(
-                                h2("My projects"),
-                                ul(
-                                        li(div(
-                                                h3("STOPruMUSIC"),
-                                                p("Service to fight Russian music in Spotify."),
-                                                a("View")
-                                                        .withClasses("btn", "btn-primary")
-                                                        .withHref("https://link.kovaliv.dev/stoprumusic")
-                                        )),
-                                        li(div(
-                                                h3("Spike assistant"),
-                                                p("Mobile application for saving task lists with the ability to recognize parameters from text."),
-                                                a("View")
-                                                        .withClasses("btn", "btn-primary")
-                                                        .withHref("https://link.kovaliv.dev/spike")
-                                        ))
-                                ).withClass("projects")
-                        ).withClass("block"),
-                        div(
-                                h2("Contacts"),
-                                p("If you have any questions or suggestions, please write to the email:"),
-                                getEmail()
-                        )
-                                .withClass("block"),
-                        div(
-                                h2("Social networks"),
-                                div(
-                                        ul(
-                                                li(a().withHref("https://link.kovaliv.dev/twitter").with(i().withClasses("fa", "fa-twitter").attr("aria-hidden", "true"))),
-                                                li(a().withHref("https://link.kovaliv.dev/linkedin").with(i().withClasses("fa", "fa-linkedin").attr("aria-hidden", "true"))),
-                                                li(a().withHref("https://link.kovaliv.dev/github").with(i().withClasses("fa", "fa-github").attr("aria-hidden", "true")))
-                                        ).withClass("social")
-                                ).withId("social-div")
-                        )
-                                .withClass("block")
-                ).withClass("content"),
-                hr(),
-                div(
-                        div(
-                                h3("And don't forget to donate for Ukraine's victory"),
-                                getSaveLive()
-                        ).withClass("block")
-                ).withClass("content")
-        );
-    }
-
-    private static DivTag getHomeContentOld() {
-        return div(
-                div(
-                        div(
-                                h2("Мої проєкти"),
-                                ul(
-                                        li(div(
-                                                h3("STOPruMUSIC"),
-                                                p("Сервіс для боротьби з російською музикою в Spotify."),
-                                                a("Переглянути")
-                                                        .withClasses("btn", "btn-primary")
-                                                        .withHref("https://link.kovaliv.dev/stoprumusic")
-                                        )),
-                                        li(div(
-                                                h3("Spike assistant"),
-                                                p("Мобільний застосунок для збереження списків справ з можливістю розпізнавання параметрів з тексту."),
-                                                a("Переглянути")
-                                                        .withClasses("btn", "btn-primary")
-                                                        .withHref("https://link.kovaliv.dev/spike")
-                                        ))
-                                ).withClass("projects")
-                        ).withClass("block"),
-                        div(
-                                h2("Контакти"),
-                                p("Маєте питання або пропозиції пишіть на емейл:"),
-                                getEmail()
-                        )
-                                .withClass("block"),
-                        div(
-                                h2("Соціальні мережі"),
-                                div(
-                                        ul(
-                                                li(a().withHref("https://link.kovaliv.dev/twitter").with(i().withClasses("fa", "fa-twitter").attr("aria-hidden", "true"))),
-                                                li(a().withHref("https://link.kovaliv.dev/linkedin").with(i().withClasses("fa", "fa-linkedin").attr("aria-hidden", "true"))),
-                                                li(a().withHref("https://link.kovaliv.dev/github").with(i().withClasses("fa", "fa-github").attr("aria-hidden", "true")))
-                                        ).withClass("social")
-                                ).withId("social-div")
-                        )
-                                .withClass("block")
-                ).withClass("content"),
-                hr(),
-                div(
-                        div(
-                                h3("І не забуваємо донатити задля перемоги України"),
-                                getSaveLive()
-                        ).withClass("block")
-                ).withClass("content")
-        );
     }
 }

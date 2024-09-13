@@ -15,7 +15,7 @@ public class Main {
     public static class App extends AbstractApp {
 
         @Override
-        protected void addEndpoints(Javalin javalin) {
+        public void addEndpoints(Javalin javalin) {
             javalin.get("/", App::home);
         }
 

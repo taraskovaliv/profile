@@ -25,9 +25,7 @@ public class Main {
 
                 @Override
                 protected Logo getLogo(String s) {
-                    return new Logo(
-                            "/img/logo.png", "Kovaliv DEV logo", "376", "74"
-                    );
+                    return new Logo("/img/logo.png", "Kovaliv DEV logo");
                 }
 
                 @Override

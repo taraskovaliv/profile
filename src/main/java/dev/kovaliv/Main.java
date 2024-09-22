@@ -1,5 +1,6 @@
 package dev.kovaliv;
 
+import dev.kovaliv.services.SitemapService;
 import dev.kovaliv.view.Base;
 import dev.kovaliv.view.Pages;
 import dev.kovaliv.view.def.AbstractBasicGetNav;
@@ -9,7 +10,7 @@ import io.javalin.http.Context;
 
 public class Main {
     public static void main(String[] args) {
-        AppStarter.startWithoutContext(new App(), 1904);
+        AppStarter.startWithoutContext(new App(), 1904, new SitemapService());
     }
 
     public static class App extends AbstractApp {

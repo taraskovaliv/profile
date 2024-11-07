@@ -2,6 +2,7 @@ package dev.kovaliv;
 
 import dev.kovaliv.services.SitemapService;
 import dev.kovaliv.view.Base;
+import dev.kovaliv.view.HelpersPage;
 import dev.kovaliv.view.Pages;
 import dev.kovaliv.view.def.AbstractBasicGetNav;
 import dev.kovaliv.view.def.GetNav;
@@ -17,7 +18,9 @@ public class Main {
 
         @Override
         public void addEndpoints(Javalin javalin) {
-            javalin.get("/", App::home);
+            javalin
+                    .get("/", App::home)
+                    .get("/davinchi-1-11-2024", ctx -> helpers(ctx, "davinchi-1.11.2024"));
         }
 
         @Override
@@ -38,6 +41,10 @@ public class Main {
 
         private static void home(Context ctx) {
             ctx.html(Base.getHtml(Pages.getIndex(ctx)));
+        }
+
+        private static void helpers(Context ctx, String jsonFilename) {
+            ctx.html(Base.getHtml(HelpersPage.getHelpers(ctx, jsonFilename)));
         }
     }
 }

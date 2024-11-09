@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: profile
-          image: taras_kovaliv/profile
+          image: profile-api:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 1904

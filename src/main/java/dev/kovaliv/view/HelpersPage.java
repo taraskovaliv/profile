@@ -39,8 +39,7 @@ public class HelpersPage {
 
     public static SectionTag getHelpers(List<Helper> helpers) {
         return section(div(
-                div(each(helpers, HelpersPage::getHelperBlock))
-                        .withClasses("row", "masonry")
+                div(each(helpers, HelpersPage::getHelperBlock)).withClasses("row")
         ).withClasses("container", "relative").withStyle("padding-top: 60px;"));
     }
 

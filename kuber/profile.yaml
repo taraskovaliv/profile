@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: profile
-          image: registry:5000/profile-api:latest
+          image: registry-service:5000/profile-api:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 1904

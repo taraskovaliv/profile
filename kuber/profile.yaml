@@ -18,6 +18,11 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 1904
+          envFrom:
+            - configMapRef:
+                name: profile-config
+            - secretRef:
+                name: slack-secret
 
 ---
 apiVersion: v1

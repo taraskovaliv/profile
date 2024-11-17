@@ -14,10 +14,11 @@ spec:
     spec:
       containers:
         - name: profile
-          image: registry-service:5000/profile-api:latest
+          image: registry.localhost/profile-api:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 1904
+
 ---
 apiVersion: v1
 kind: Service

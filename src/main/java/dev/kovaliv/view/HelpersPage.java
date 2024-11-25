@@ -30,7 +30,7 @@ public class HelpersPage {
         helperPage.getHelpers().sort((a, b) -> b.wage.compareTo(a.wage));
 
         return Base.getPage(
-                new Base.Page(helperPage.title, "Лінк на збір: " + helperPage.url, false, true, ctx),
+                new Base.Page(helperPage.title, "Лінк на збір: " + helperPage.url, false, ctx),
                 new Base.BasicHeader("Дякую всім, хто допомагав зі збором",
                         "Проекти/сайти/сторінки тих людей, що допомогли зібрати кошти на збір:\n'%s'\n\nЛінк на збір: %s".formatted(helperPage.title, helperPage.url),
                         null),
@@ -95,7 +95,6 @@ public class HelpersPage {
         private String url;
         private List<Helper> helpers;
     }
-
 
     @Getter
     @Setter

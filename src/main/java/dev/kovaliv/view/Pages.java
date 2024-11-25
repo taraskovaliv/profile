@@ -14,10 +14,10 @@ public class Pages {
     public static HtmlTag getIndex(Context ctx) {
         String lang = Base.getLang(ctx);
         if ("en".equals(lang)) {
-            Base.Page EN_PAGE = new Base.Page("Kovaliv Taras profile", "Personal profile Kovaliv Taras", true, false, ctx);
+            Base.Page EN_PAGE = new Base.Page("Kovaliv Taras profile", "Personal profile Kovaliv Taras", true, ctx);
             return Base.getPage(EN_PAGE, ctx, getHomeContent(lang));
         }
-        Base.Page UK_PAGE = new Base.Page("Профіль Ковалів Тарас", "Особистий профіль Ковалів Тарас", true, false, ctx);
+        Base.Page UK_PAGE = new Base.Page("Профіль Ковалів Тарас", "Особистий профіль Ковалів Тарас", true, ctx);
         return Base.getPage(UK_PAGE, ctx, getHomeContent(lang));
     }
 
@@ -70,7 +70,7 @@ public class Pages {
                                         ).withHref("#about").withClass("scroll-down")
                                 ).withClasses("local-scroll", "scroll-down-wrap", "wow", "fadeInUpShort")
                                         .attr("data-wow-offset", "0")
-                        ).withClasses("container", "min-height-100vh", "d-flex", "align-items-center", "pt-100", "pb-100")
+                        ).withClasses("container", "min-height-100vh", "d-flex", "align-items-center", "pb-100")
                 ).withId("home").withClasses("home-section", "bg-dark", "light-content"),
                 section(
                         div(

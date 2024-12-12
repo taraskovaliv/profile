@@ -5,8 +5,7 @@ import j2html.tags.specialized.DivTag;
 import j2html.tags.specialized.HtmlTag;
 import j2html.tags.specialized.MainTag;
 
-import static dev.kovaliv.view.Base.divider;
-import static dev.kovaliv.view.Base.getEmail;
+import static dev.kovaliv.view.Base.*;
 import static j2html.TagCreator.*;
 
 public class Pages {
@@ -72,7 +71,7 @@ public class Pages {
                                         .attr("data-wow-offset", "0")
                         ).withClasses("container", "min-height-100vh", "d-flex", "align-items-center", "pb-100")
                 ).withId("home").withClasses("home-section", "bg-dark", "light-content"),
-                section(
+                pageSection(
                         div(
                                 div(
                                         div(
@@ -112,9 +111,9 @@ public class Pages {
                                                 .withStyle("text-decoration:none")
                                 ).withClasses("footer-social-links", "mb-90", "mb-xs-40")
                         ).withClasses("container", "relative")
-                ).withId("about").withClasses("page-section", "bg-dark", "light-content"),
+                ).withId("about"),
                 divider(),
-                section(
+                pageSection(
                         div(
                                 div(
                                         div(
@@ -173,10 +172,9 @@ public class Pages {
                                         ).withClasses("col-sm-6", "col-md-4", "col-lg-4", "mb-md-50")
                                 ).withClass("row")
                         ).withClasses("container", "relative")
-                ).withId("projects")
-                        .withClasses("page-section", "bg-dark", "light-content"),
+                ).withId("projects"),
                 divider(),
-                section(
+                smallSection(
                         div(
                                 div(
                                         div(
@@ -190,7 +188,7 @@ public class Pages {
                                         ).withClasses("col-md-8", "offset-md-2", "text-center")
                                 ).withClasses("row", "wow", "fadeInUpShort")
                         ).withClasses("container", "relative")
-                ).withClasses("small-section", "bg-dark", "light-content")
+                )
         ).withId("main");
     }
 

@@ -1,5 +1,6 @@
 package dev.kovaliv;
 
+import dev.kovaliv.data.entity.Result;
 import dev.kovaliv.services.SitemapService;
 import dev.kovaliv.view.Base;
 import dev.kovaliv.view.HelpersPage;
@@ -8,6 +9,9 @@ import dev.kovaliv.view.def.AbstractBasicGetNav;
 import dev.kovaliv.view.def.GetNav;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
+import org.jetbrains.annotations.NotNull;
+
+import static dev.kovaliv.data.Repos.resultRepo;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,7 +24,13 @@ public class Main {
         public void addEndpoints(Javalin javalin) {
             javalin
                     .get("/", App::home)
+                    .get("/treads", App::treads)
                     .get("/davinchi-1-11-2024", ctx -> helpers(ctx, "davinchi-1.11.2024"));
+        }
+
+        private static void treads(@NotNull Context context) {
+            resultRepo().save(new Result(context));
+            context.result("Success");
         }
 
         @Override

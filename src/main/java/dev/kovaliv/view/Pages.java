@@ -22,6 +22,7 @@ public class Pages {
 
     private static MainTag getHomeContent(String lang) {
         String spikeUrl = "https://link.kovaliv.dev/spike";
+        String kebukUrl = "https://link.kovaliv.dev/kebuk";
         String stopRuMusicUrl = "https://link.kovaliv.dev/stoprumusic";
         String electricityUrl = "https://electricity.kovaliv.dev";
         String madeInUkraine = "https://made-in-ukraine.kovaliv.dev";
@@ -127,7 +128,17 @@ public class Pages {
                                 ).withClasses("text-center", "mb-80", "mb-sm-50"),
                                 div(
                                         div(
-                                                getProjectImage("stop_ru_music.png", stopRuMusicUrl),
+                                                getProjectImage("https://img.kebuk.com.ua/og-image.png", kebukUrl),
+                                                h3(
+                                                        a("Kebuk").withHref(kebukUrl)
+                                                ).withClass("post-prev-title"),
+                                                div(p(
+                                                        "en".equals(lang) ? "Library of e-books." : "Каталог електронних книг."
+                                                )).withClass("post-prev-text"),
+                                                getShowMoreButton(lang, kebukUrl)
+                                        ).withClasses("col-sm-6", "col-md-4", "col-lg-4", "mb-md-50"),
+                                        div(
+                                                getProjectImage("/img/stop_ru_music.png", stopRuMusicUrl),
                                                 h3(
                                                         a("STOPruMUSIC").withHref(stopRuMusicUrl)
                                                 ).withClass("post-prev-title"),
@@ -138,7 +149,7 @@ public class Pages {
                                                 getShowMoreButton(lang, stopRuMusicUrl)
                                         ).withClasses("col-sm-6", "col-md-4", "col-lg-4", "mb-md-50"),
                                         div(
-                                                getProjectImage("spike.png", spikeUrl),
+                                                getProjectImage("/img/spike.png", spikeUrl),
                                                 h3(
                                                         a("Spike assistant").withHref(spikeUrl)
                                                 ).withClass("post-prev-title"),
@@ -149,7 +160,7 @@ public class Pages {
                                                 getShowMoreButton(lang, spikeUrl)
                                         ).withClasses("col-sm-6", "col-md-4", "col-lg-4", "mb-md-50"),
                                         div(
-                                                getProjectImage("electricity.png", electricityUrl),
+                                                getProjectImage("/img/electricity.png", electricityUrl),
                                                 h3(
                                                         a("en".equals(lang) ? "Imort/export of electricity" : "Імпорт/експорт електроенергії").withHref(electricityUrl)
                                                 ).withClass("post-prev-title"),
@@ -160,7 +171,7 @@ public class Pages {
                                                 getShowMoreButton(lang, electricityUrl)
                                         ).withClasses("col-sm-6", "col-md-4", "col-lg-4", "mb-md-50"),
                                         div(
-                                                getProjectImage("made-in-ukraine.png", madeInUkraine),
+                                                getProjectImage("/img/made-in-ukraine.png", madeInUkraine),
                                                 h3(
                                                         a("en".equals(lang) ? "National cahback item" : "Товари програми 'Національний кешбек'").withHref(madeInUkraine)
                                                 ).withClass("post-prev-title"),
@@ -196,7 +207,7 @@ public class Pages {
         return div(
                 a(
                         img()
-                                .withSrc("/img/" + image)
+                                .withSrc(image)
                                 .withClasses("wow", "scaleOutIn")
                                 .attr("data-wow-duration", "1.2s")
                 ).withTabindex(-1).withHref(url)

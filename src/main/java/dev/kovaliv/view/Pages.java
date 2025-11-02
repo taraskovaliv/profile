@@ -82,12 +82,12 @@ public class Pages {
                                                         ).withClasses("lead-alt", "wow", "linesAnimIn").attr("data-splitting", "lines")
                                                 ).withClasses("col-md-12", "col-lg-4", "mb-md-50", "mb-xs-30"),
                                                 div(
-                                                        "en".equals(lang) ? "Have experience in developing web sites, mobile applications and services. I learn easily and am ready to learn new technologies."
-                                                                : "Маю досвід розробки веб-сайтів, мобільних додатків та сервісів. Легко навчаюсь та готовий вивчати нові технології."
+                                                        "en".equals(lang) ? "Experienced software engineer specializing in full-stack development with Java, Spring Boot, and modern web technologies. Proven track record of building scalable web applications, mobile solutions, and backend services from concept to deployment."
+                                                                : "Досвідчений інженер-програміст, що спеціалізується на full-stack розробці з використанням Java, Spring Boot та сучасних веб-технологій. Підтверджений досвід створення масштабованих веб-додатків, мобільних рішень та backend сервісів від концепції до впровадження."
                                                 ).withClasses("col-md-6", "col-lg-4", "mb-sm-50", "mb-xs-30", "wow", "linesAnimIn").attr("data-splitting", "lines"),
                                                 div(
-                                                        "en".equals(lang) ? "Have experience in commercial development for more than 3 years. Worked in automotive and fintech sectors." :
-                                                                "Досвід комерційної розробки вже більше 3 років. Працював в автомотів та фінтех сферах."
+                                                        "en".equals(lang) ? "3+ years of commercial software development experience across automotive and fintech industries. Successfully delivered multiple production-grade projects, including e-commerce platforms, mobile applications, and data visualization tools serving thousands of users." :
+                                                                "Понад 3 роки досвіду комерційної розробки програмного забезпечення в автомобільній та фінтех індустріях. Успішно реалізував декілька проєктів промислового рівня, включаючи e-commerce платформи, мобільні застосунки та інструменти візуалізації даних, які обслуговують тисячі користувачів."
                                                 ).withClasses("col-md-6", "col-lg-4", "mb-sm-50", "mb-xs-30", "wow", "linesAnimIn").attr("data-splitting", "lines")
                                         ).withClasses("row", "section-text")
                                 ).withClasses("mb-140", "mb-sm-70"),

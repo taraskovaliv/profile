@@ -87,7 +87,7 @@ public class Pages {
                                                 ).withClasses("col-md-6", "col-lg-4", "mb-sm-50", "mb-xs-30", "wow", "linesAnimIn").attr("data-splitting", "lines"),
                                                 div(
                                                         "en".equals(lang) ? "Have experience in commercial development for more than 3 years. Worked in automotive and fintech sectors." :
-                                                                "Досвід комерційної розробки вже більше 3 років. Працював в автомотів та фінтех сферах."
+                                                                "Досвід комерційної розробки вже більше 5 років. Працював в автомотів та фінтех сферах."
                                                 ).withClasses("col-md-6", "col-lg-4", "mb-sm-50", "mb-xs-30", "wow", "linesAnimIn").attr("data-splitting", "lines")
                                         ).withClasses("row", "section-text")
                                 ).withClasses("mb-140", "mb-sm-70"),
@@ -133,7 +133,7 @@ public class Pages {
                                                         a("Kebuk").withHref(kebukUrl)
                                                 ).withClass("post-prev-title"),
                                                 div(p(
-                                                        "en".equals(lang) ? "Library of e-books." : "Каталог електронних книг."
+                                                        "en".equals(lang) ? "Book catalog." : "Каталог книг."
                                                 )).withClass("post-prev-text"),
                                                 getShowMoreButton(lang, kebukUrl)
                                         ).withClasses("col-sm-6", "col-md-4", "col-lg-4", "mb-md-50"),
@@ -162,7 +162,7 @@ public class Pages {
                                         div(
                                                 getProjectImage("/img/electricity.png", electricityUrl),
                                                 h3(
-                                                        a("en".equals(lang) ? "Imort/export of electricity" : "Імпорт/експорт електроенергії").withHref(electricityUrl)
+                                                        a("en".equals(lang) ? "Import/export of electricity" : "Імпорт/експорт електроенергії").withHref(electricityUrl)
                                                 ).withClass("post-prev-title"),
                                                 div(p(
                                                         "en".equals(lang) ? "Web app to show statistic of import/export of electricity in Ukraine." :
